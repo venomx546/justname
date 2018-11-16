@@ -2,11 +2,9 @@ import random
 import time
 import os
 print()
-print('''Welcome to the Slot Machine 
-You'll start with ?50. You'll be asked if you want to play.
-Answer with yes/no. you can also use y/n
-There is no case sensitivity, type it however you like!
-To win you must get one of the following combinations:
+print('''gamarjoba chemi pirveli programaa 
+ shen daiwyeb  ?50 
+shegidzlia gamoiyeno yes/no. aseve shegidzlia gamoiyeno y/n
 BAR\tBAR\tBAR\t\tpays\t?250
 BELL\tBELL\tBELL/BAR\tpays\t?20
 PLUM\tPLUM\tPLUM/BAR\tpays\t?14
@@ -43,9 +41,7 @@ def play():
 
 def askPlayer():
     '''
-    Asks the player if he wants to play again.
-    expecting from the user to answer with yes, y, no or n
-    No case sensitivity in the answer. yes, YeS, y, y, nO . . . all works
+    ekitxeba tamashi undatuara kidev ki ari y an yes uaria n an no case sensitive arari
     '''
     global stake
     global balance
@@ -55,8 +51,8 @@ def askPlayer():
             print ("Machine balance reset.")
             balance = 1000
 
-        print ("The Jackpot is currently: ?" + str(balance) + ".")
-        answer = input("Would you like to play? Or check your money? ")
+        print ("exlandeli jekpoti aris: ?" + str(balance) + ".")
+        answer = input("gaagrdzeleb? tu fuls gaanagdeb? ")
         answer = answer.lower()
         if(answer == "yes" or answer == "y"):
             return True
@@ -67,12 +63,12 @@ def askPlayer():
         elif(answer == "check" or answer == "CHECK"):
             print ("You currently have ?" + str(stake) + ".")
         else:
-            print("Whoops! Didn't get that.")
+            print("cota acdi dzamia.")
 
 
 def spinWheel():
     '''
-    returns a random item from the wheel
+    gamoaq raime aitemi rendom it
     '''
     randomNumber = random.randint(0, 5)
     return ITEMS[randomNumber]
@@ -80,7 +76,7 @@ def spinWheel():
 
 def printScore():
     '''
-    prints the current score
+    exlandel qulas printavs
     '''
     global stake, firstWheel, secondWheel, thirdWheel, balance
     if((firstWheel == "CHERRY") and (secondWheel != "CHERRY")):
@@ -115,13 +111,13 @@ def printScore():
 
         stake += win
     if win == balance:
-        print ("You won the JACKPOT!!")
+        print ("moige da egaxar!!")
     if(win > 0):
         print(firstWheel + '\t' + secondWheel + '\t' + thirdWheel + ' -- You win ?' + str(win))
         time.sleep(3)
         os.system('cls' if os.name == 'nt' else 'clear')
     else:
-        print(firstWheel + '\t' + secondWheel + '\t' + thirdWheel + ' -- You lose')
+        print(firstWheel + '\t' + secondWheel + '\t' + thirdWheel + ' -- kide cade')
         time.sleep(2)
         os.system('cls' if os.name == 'nt' else 'clear')
 
